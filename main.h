@@ -12,5 +12,6 @@ int _printf(const char *format, ...);
 int formatloop(const char *format, va_list list);
 int char_check(int str);
 void vaListToArray(int count, ...);
+unsigned long int format2(char format, va_list list);
 
 #endif
