@@ -26,7 +26,6 @@ int formatloop(const char *format, va_list list)
 			{
 
 				c = va_arg(list, int);
-				char_check(c);
 				write(1, &c, 1);
 				i++;
 				count++;
