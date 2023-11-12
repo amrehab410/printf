@@ -4,10 +4,13 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <string.h>
+#include <ctype.h>
+#include <errno.h>
 #include <unistd.h>
 
 int _printf(const char *format, ...);
-char *formatloop(char spec, char *str);
-char *char_check(char *str);
+int formatloop(const char *format, va_list list);
+int char_check(int str);
+void vaListToArray(int count, ...);
 
 #endif

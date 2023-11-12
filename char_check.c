@@ -5,7 +5,12 @@
  * Return: character.
  */
 
-char *char_check(char *str)
+int char_check(int str)
 {
+	if (sizeof(str) != 1)
+	{
+		perror("This is not a character!!!!!!!");
+		exit(98);
+	}
 	return (str);
 }
