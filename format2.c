@@ -9,15 +9,17 @@
 unsigned long int format2(char format, va_list list)
 {
 	unsigned long int len = 0;
-	int c, temp, digits = 0;
+	int i, c;
 
 	if (format == 'd' || format == 'i')
 	{
 		c = va_arg(list, int);
-		char buffer[12];
-
-		len = sprintf(buffer, "%d", c);
-		write(1, buffer, len);
+		i = c;
+		do {
+			i /= 10;
+			len++;
+		} while (i != 0);
+		write(1, &c, len);
 	}
 	return (len);
 }
