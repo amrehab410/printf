@@ -14,7 +14,12 @@ int formatloop(const char *format, va_list list)
 
 	for (i = 0; i < strlen(format); i++)
 	{
-		if (format[i] == '%')
+		if (!format[i] == '%')
+		{
+			write(1, &format[i], 1);
+			count++;
+		}
+		else
 		{
 			if (format[i + 1] == '%')
 			{
@@ -39,12 +44,6 @@ int formatloop(const char *format, va_list list)
 				count += len;
 			}
 		}
-		else
-		{
-			write(1, &format[i], 1);
-			count++;
-		}
 	}
-
 	return (count);
 }
