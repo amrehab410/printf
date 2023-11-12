@@ -1,51 +1,50 @@
 #include "main.h"
 /**
- * _printf - Entry point
- *
+ * _printf - prints the string given.
+ * @format: the string
  * Return: Always 0
  */
 
 int _printf(const char *format, ...)
 {
-	int i;
-	char *str;
+	unsigned long int i, len, count = 0;
+	char *str, percent = '%';
+	int c;
 	va_list list;
-	va_start(list, format);
 
+	va_start(list, format);
 	for (i = 0; i < strlen(format); i++)
 	{
-
 		if (format[i] == '%')
 		{
 			if (format[i + 1] == '%')
 			{
+				write(1, &percent, 1);
+				i++;
+				count++;
 			}
-			else
+			else if (format[i + 1] == 'c')
+			{
+				c = va_arg(list, int);
+				write(1, &c, 1);
+				i++;
+				count++;
+			}
+			else if (format[i + 1] == 's')
 			{
 				str = va_arg(list, char *);
-				formatloop(format[i + 1], str);
+				len = strlen(str);
+				write(1, str, len);
+				i++;
+				count += len;
 			}
 		}
+		else
+		{
+			write(1, &format[i], 1);
+			count++;
+		}
 	}
+	va_end(list);
+	return (count);
 }
-
-// va_list list;
-
-// va_start(list, n);
-
-// for (i = 0; i < n; i++)
-// {
-// 	str = va_arg(list, char *);
-// 	if (!str)
-// 		str = "(nil)";
-// 	if (!separator)
-// 		printf("%s", str);
-// 	else if (separator && i == 0)
-// 		printf("%s", str);
-// 	else
-// 		printf("%s%s", separator, str);
-// }
-
-// printf("\n");
-
-// va_end(list);

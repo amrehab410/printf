@@ -1,8 +1,9 @@
 #include "main.h"
 /**
- * _printf - Entry point
- *
- * Return: Always 0
+ * formatloop - specifies which format specifer we are using
+ * @spec: the format specifier.
+ * @str: the argument used.
+ * Return: the value of the argument
  */
 
 char *formatloop(char spec, char *str)
@@ -10,19 +11,16 @@ char *formatloop(char spec, char *str)
 	switch (spec)
 	{
 	case 'c':
-		char_check(str);
-		break;
-	case 's':
-		string_check(str);
-		break;
-	case 'd':
-		char_check(str);
-		break;
-	case 'i':
-		char_check(str);
-		break;
-
+		return (char_check(str));
+	/**
+	*case 's':
+	*return (string_check(str));
+	*case 'd':
+	*return (dec_check(str));
+	*case 'i':
+	*return (int_check(str));
+	*/
 	default:
-		break;
+		return (NULL);
 	}
 }
