@@ -14,5 +14,6 @@ int binary_check(va_list list)
 	len = strlen(res);
 
 	write(1, res, len);
+	free(res);
 	return (len);
 }
