@@ -36,6 +36,8 @@ int formatloop(const char *format, va_list list)
 				count += binary_check(list);
 			else if (format[i + 1] == 'o')
 				count += octal_check(list);
+			else if (format[i + 1] == 'u')
+				count += unsigned_check(list);
 			i++;
 		}
 	}

@@ -19,5 +19,6 @@ int binary_check(va_list list);
 int int_check(va_list list);
 char *intToOcta(int num);
 int octal_check(va_list list);
+int unsigned_check(va_list list);
 
 #endif
