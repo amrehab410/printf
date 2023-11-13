@@ -1,16 +1,19 @@
 #include "main.h"
 /**
- * formatloop - specifies which format specifer we are using
- * @format: the format string.
- * @list: the list of args used.
- * Return: the value of the argument
- */
+* formatloop - specifies which format specifer we are using
+* @format: the format string.
+* @list: the list of args used.
+* Return: the value of the argument
+*/
 
 int formatloop(const char *format, va_list list)
 {
 	unsigned long int i, len = 0;
+
 	char *str, percent = '%';
+
 	int count = 0;
+
 	char buffer[12];
 
 	for (i = 0; i < strlen(format); i++)
@@ -30,6 +33,7 @@ int formatloop(const char *format, va_list list)
 			else if (format[i + 1] == 'c')
 			{
 				int c = va_arg(list, int);
+
 				write(1, &c, 1);
 				count++;
 			}
