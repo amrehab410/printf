@@ -16,7 +16,7 @@ int main(void)
 	len2 = printf("Length:[%d, %i]\n", 55, 55);
 	printf("Length:[%d, %d]\n", len, len2);
 	_printf("%");
-	printf("Character:[%c]\n", 'H');
+	printf("Character:[%d]\n", '\n');
 	_printf("String:[%s][%c]\n", "I am a string !", 'h');
 	printf("String:[%s][%c]\n", "I am a string !", 'h');
 	_printf("Length:[%d, %i]\n", len, len2);
@@ -26,7 +26,8 @@ int main(void)
 	_printf("Unsigned:[%u]\n", -53);
 	printf("Unsigned:[%u]\n", -53);
 	_printf("");
-	_printf("Unsigned hexadecimal:[%x, %X]\n", 155, 155);
-	printf("Unsigned hexadecimal:[%x, %X]\n", 155, 155);
+	_printf("Unsigned hexadecimal:[%x, %X]\n", '\n', '\n');
+	printf("Unsigned hexadecimal:[%x, %X]\n", '\n', '\n');
+	_printf("%S\n", "Best\nSchool");
 	return (0);
 }

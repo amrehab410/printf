@@ -2,18 +2,49 @@
 /**
  * string_check - checks for strings
  * @list: the list of args used.
+ * @op: the operator used.
  * Return: the length of the argument
  */
-int string_check(va_list list)
+int string_check(va_list list, char op)
 {
 	char *str = va_arg(list, char *);
+	char *res;
+	unsigned long int i, count = 0;
 
-	if (str != NULL)
+	if (str != NULL && op == 's')
 	{
 		unsigned long int len = strlen(str);
 
 		write(1, str, len);
 		return (len);
+	}
+	else
+	{
+		for (i = 0; i < strlen(str); i++)
+		{
+			if (str[i] >= 32 && str[i] < 127)
+			{
+				write(1, &str[i], 1);
+				count++;
+			}
+			else
+			{
+				unsigned long int len;
+
+				write(1, "\\x", 2);
+				res = intToHEX((int)str[i]);
+				len = strlen(res);
+				if (len < 2)
+				{
+					write(1, "0", 1);
+					count++;
+				}
+				write(1, res, len);
+				free(res);
+				count += len;
+			}
+		}
+		return (count);
 	}
 	return (0);
 }

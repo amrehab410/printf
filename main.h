@@ -14,7 +14,7 @@ int char_check(va_list list);
 void vaListToArray(int count, ...);
 unsigned long int format2(char format, va_list list);
 char *intToBinary(int num);
-int string_check(va_list list);
+int string_check(va_list list, char op);
 int binary_check(va_list list);
 int int_check(va_list list);
 char *intToOcta(int num);

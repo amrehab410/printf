@@ -28,8 +28,8 @@ int formatloop(const char *format, va_list list)
 			}
 			else if (format[i + 1] == 'c')
 				count += char_check(list);
-			else if (format[i + 1] == 's')
-				count += string_check(list);
+			else if (format[i + 1] == 's' || format[i + 1] == 'S')
+				count += string_check(list, format[i + 1]);
 			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
 				count += int_check(list);
 			else if (format[i + 1] == 'b')
