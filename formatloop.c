@@ -1,16 +1,16 @@
 #include "main.h"
 /**
-* formatloop - specifies which format specifer we are using
-* @format: the format string.
-* @list: the list of args used.
-* Return: the value of the argument
-*/
+ * formatloop - specifies which format specifer we are using
+ * @format: the format string.
+ * @list: the list of args used.
+ * Return: the value of the argument
+ */
 
 int formatloop(const char *format, va_list list)
 {
 	unsigned long int i, len = 0;
 
-	char *str, percent = '%';
+	char *str, percent = '%', *res;
 
 	int count = 0;
 
@@ -50,6 +50,14 @@ int formatloop(const char *format, va_list list)
 
 				len = sprintf(buffer, "%d", c);
 				write(1, buffer, len);
+				count += len;
+			}
+			else if (format[i + 1] == 'b')
+			{
+				int c = va_arg(list, int);
+				res = intToBinary(c);
+				len = strlen(res);
+				write(1, res, len);
 				count += len;
 			}
 			i++;
