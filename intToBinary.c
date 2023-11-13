@@ -1,4 +1,9 @@
 #include "main.h"
+/**
+ * intToBinary - converts from decimal to binary
+ * @num: the decimal input.
+ * Return: the binary value of the argument
+ */
 
 char *intToBinary(int num)
 {
