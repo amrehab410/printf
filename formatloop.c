@@ -55,6 +55,7 @@ int formatloop(const char *format, va_list list)
 			else if (format[i + 1] == 'b')
 			{
 				unsigned int c = va_arg(list, int);
+
 				res = intToBinary(c);
 				len = strlen(res);
 				write(1, res, len);
