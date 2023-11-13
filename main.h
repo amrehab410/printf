@@ -20,5 +20,9 @@ int int_check(va_list list);
 char *intToOcta(int num);
 int octal_check(va_list list);
 int unsigned_check(va_list list);
+char *intToHEX(int num);
+char *intTohex(int num);
+int HEX_check(va_list list);
+int hex_check(va_list list);
 
 #endif

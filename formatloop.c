@@ -38,6 +38,10 @@ int formatloop(const char *format, va_list list)
 				count += octal_check(list);
 			else if (format[i + 1] == 'u')
 				count += unsigned_check(list);
+			else if (format[i + 1] == 'X')
+				count += HEX_check(list);
+			else if (format[i + 1] == 'x')
+				count += hex_check(list);
 			i++;
 		}
 	}
