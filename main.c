@@ -12,7 +12,7 @@ int main(void)
 	int len;
 	int len2;
 
-	len = _printf("Length:[%d, %i]\n", 55, 55);
+	len = _printf("Length:[%d, %i]\n", 55, 56);
 	len2 = printf("Length:[%d, %i]\n", 55, 55);
 	printf("Length:[%d, %d]\n", len, len2);
 	_printf("Character:[%b]\n", 4);
