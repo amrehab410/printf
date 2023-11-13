@@ -21,5 +21,7 @@ int main(void)
 	printf("String:[%s][%c]\n", "I am a string !", 'h');
 	_printf("Length:[%d, %i]\n", len, len2);
 	_printf("%b\n", 98);
+	_printf("Unsigned octal:[%o]\n", 3333);
+	printf("Unsigned octal:[%o]\n", 3333);
 	return (0);
 }

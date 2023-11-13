@@ -27,21 +27,15 @@ int formatloop(const char *format, va_list list)
 				count++;
 			}
 			else if (format[i + 1] == 'c')
-			{
 				count += char_check(list);
-			}
 			else if (format[i + 1] == 's')
-			{
 				count += string_check(list);
-			}
 			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
-			{
 				count += int_check(list);
-			}
 			else if (format[i + 1] == 'b')
-			{
 				count += binary_check(list);
-			}
+			else if (format[i + 1] == 'o')
+				count += octal_check(list);
 			i++;
 		}
 	}
