@@ -18,7 +18,7 @@ int string_check(va_list list, char op)
 		write(1, str, len);
 		return (len);
 	}
-	else
+	else if (str != NULL && op == 'S')
 	{
 		for (i = 0; i < strlen(str); i++)
 		{
@@ -46,7 +46,7 @@ int string_check(va_list list, char op)
 		}
 		return (count);
 	}
-	return (0);
+	return (-1);
 }
 /**
  * char_check - checks for characters
