@@ -10,6 +10,12 @@ char *hex_string(const void *ptr)
 	const size_t numBytes = sizeof(void *);
 	char *hexString = (char *)malloc(HEX_STRING_SIZE);
 
+	if (ptr == NULL)
+	{
+		_printf("(null pointer)\n");
+		return (NULL);
+	}
+
 	if (hexString == NULL)
 	{
 		return (NULL);

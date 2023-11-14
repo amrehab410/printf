@@ -9,11 +9,17 @@
  */
 int main(void)
 {
-	int len;
+	int len, value, *ptr;
 	int len2;
 	void *addr;
 
-	addr = (void *)0x7ffe654841f0;
+	addr = &len;
+
+	value = 42;
+	ptr = &value;
+
+	_printf("Pointer: %p\n", ptr);
+	_printf("NULL Pointer: %p\n", NULL);
 
 	len = _printf("Length:[%d, %i]\n", -12345, 36552);
 	len2 = printf("Length:[%d, %li]\n", -12345, 361851318165181518);
