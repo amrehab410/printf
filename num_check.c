@@ -33,13 +33,12 @@ int int_check(va_list args)
 	rem = 1;
 	len = 0;
 
+	d = n;
 	if (n < 0)
 	{
 		len += _putchar('-');
-		d = n * -1;
+		d = -d;
 	}
-	else
-		d = n;
 
 	while (d / rem > 9)
 		rem *= 10;
