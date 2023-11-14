@@ -24,8 +24,8 @@ int binary_check(va_list list)
  */
 int int_check(va_list list)
 {
-	int rem, len = 0, d;
-	int reversed = 0;
+	int rem, len = 0;
+	int reversed = 0, d;
 	int c = va_arg(list, int);
 
 	if (c == 0)
@@ -34,6 +34,12 @@ int int_check(va_list list)
 		len++;
 	}
 	d = c;
+	if (c < 0)
+	{
+		_putchar('-');
+		len++;
+		d = -d;
+	}
 	while (d)
 	{
 		rem = d % 10;
