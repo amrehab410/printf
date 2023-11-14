@@ -11,6 +11,9 @@ int main(void)
 {
 	int len;
 	int len2;
+	void *addr;
+
+	addr = (void *)0x7ffe654841f0;
 
 	len = _printf("Length:[%d, %i]\n", -12345, 36552);
 	len2 = printf("Length:[%d, %li]\n", -12345, 361851318165181518);
@@ -29,5 +32,8 @@ int main(void)
 	_printf("Unsigned hexadecimal:[%x, %X]\n", '\n', '\n');
 	printf("Unsigned hexadecimal:[%x, %X]\n", '\n', '\n');
 	_printf("%S\n", "Best\nSchool");
+	_printf("Address:[%p]\n", addr);
+	printf("Address:[%p]\n", addr);
+
 	return (0);
 }

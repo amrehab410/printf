@@ -1,5 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
+#define HEX_STRING_SIZE (2 * sizeof(void *) + 3)
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
@@ -7,7 +8,7 @@
 #include <ctype.h>
 #include <errno.h>
 #include <unistd.h>
-#include <math.h>
+#include <stddef.h>
 
 int _printf(const char *format, ...);
 int formatloop(const char *format, va_list list);
@@ -27,5 +28,7 @@ int HEX_check(va_list list);
 int hex_check(va_list list);
 int _putchar(char c);
 int percent_check(void);
+char *hex_string(const void *ptr);
+int pointer_check(va_list list);
 
 #endif

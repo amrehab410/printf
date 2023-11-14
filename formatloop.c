@@ -38,6 +38,8 @@ int formatloop(const char *format, va_list list)
 				count += HEX_check(list);
 			else if (format[i + 1] == 'x')
 				count += hex_check(list);
+			else if (format[i + 1] == 'p')
+				count += pointer_check(list);
 			i++;
 		}
 	}
