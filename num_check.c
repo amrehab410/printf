@@ -19,17 +19,17 @@ int binary_check(va_list list)
 }
 /**
  * int_check - checks for integers
- * @args: the list of args used.
+ * @list: the list of args used.
  * Return: the length of the argument
  */
-int int_check(va_list args)
+int int_check(va_list list)
 {
 	int n;
 	int rem;
 	int len;
 	unsigned int d;
 
-	n = va_arg(args, int);
+	n = va_arg(list, int);
 	rem = 1;
 	len = 0;
 
@@ -79,35 +79,27 @@ int octal_check(va_list list)
  */
 int unsigned_check(va_list list)
 {
-	char buffer[12];
-	int c = va_arg(list, int);
+	int n;
+	int rem;
+	int len;
+	unsigned int d;
 
-	if (c < 0)
+	n = va_arg(list, int);
+	rem = 1;
+	len = 0;
+
+	d = n;
+
+	while (d / rem > 9)
+		rem *= 10;
+
+	while (rem != 0)
 	{
-		char *binary = intToBinary(c);
-		char *endPtr;
-		long int convertedValue = strtol(binary, &endPtr, 2);
-		int buffer = ~convertedValue + 1;
-		int res = binaryToDecimal(buffer);
-
-		printf("Hexaaaaaaaaaa%d\n", res);
-		printf("Binaryyyyyyyy%s\n", binary);
-		printf("Decimaaaaaaaaaaaaal%d\n", c);
-
-		/**
-		 * unsigned long int len = strlen(res);
-		 *
-		 *  write(1, buffer, len);
-		 * return (len);
-		 */
-		return (1);
+		_putchar('0' + d / rem);
+		len++;
+		d %= rem;
+		rem /= 10;
 	}
-	else
-	{
 
-		unsigned long int len = sprintf(buffer, "%d", c);
-
-		write(1, buffer, len);
-		return (len);
-	}
+	return (len);
 }

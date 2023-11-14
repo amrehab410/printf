@@ -9,14 +9,15 @@ int string_check(va_list list, char op)
 {
 	char *str = va_arg(list, char *);
 	char *res;
-	unsigned long int i, count = 0;
+	unsigned long int i, len, count = 0;
 
+	if (str == NULL)
+		str = "(null)";
 	if (str != NULL && op == 's')
 	{
-		unsigned long int len = strlen(str);
-
-		write(1, str, len);
-		return (len);
+		for (i = 0; str[i] != '\0'; i++)
+			_putchar(str[i]);
+		return (i);
 	}
 	else if (str != NULL && op == 'S')
 	{
@@ -29,8 +30,6 @@ int string_check(va_list list, char op)
 			}
 			else
 			{
-				unsigned long int len;
-
 				write(1, "\\x", 2);
 				res = intToHEX((int)str[i]);
 				len = strlen(res);
