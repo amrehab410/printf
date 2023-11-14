@@ -9,7 +9,6 @@
 int formatloop(const char *format, va_list list)
 {
 	unsigned long int i;
-	char percent = '%';
 	int count = 0;
 
 	for (i = 0; i < strlen(format); i++)
@@ -22,10 +21,7 @@ int formatloop(const char *format, va_list list)
 		else
 		{
 			if (format[i + 1] == '%')
-			{
-				write(1, &percent, 1);
-				count++;
-			}
+				count += percent_check();
 			else if (format[i + 1] == 'c')
 				count += char_check(list);
 			else if (format[i + 1] == 's' || format[i + 1] == 'S')

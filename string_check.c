@@ -59,3 +59,16 @@ int char_check(va_list list)
 	write(1, &c, 1);
 	return (1);
 }
+
+/**
+ * percent_check - checks for characters
+ *
+ * Return: 1
+ */
+int percent_check(void)
+{
+	char percent = '%';
+
+	write(1, &percent, 1);
+	return (1);
+}

@@ -26,5 +26,6 @@ char *intTohex(int num);
 int HEX_check(va_list list);
 int hex_check(va_list list);
 int _putchar(char c);
+int percent_check(void);
 
 #endif
