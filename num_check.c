@@ -19,10 +19,42 @@ int binary_check(va_list list)
 }
 /**
  * int_check - checks for integers
- * @list: the list of args used.
+ * @args: the list of args used.
  * Return: the length of the argument
  */
-int int_check(va_list list)
+int int_check(va_list args)
+{
+	int n;
+	int rem;
+	int len;
+	unsigned int d;
+
+	n = va_arg(args, int);
+	rem = 1;
+	len = 0;
+
+	if (n < 0)
+	{
+		len += _putchar('-');
+		d = n * -1;
+	}
+	else
+		d = n;
+
+	while (d / rem > 9)
+		rem *= 10;
+
+	while (rem != 0)
+	{
+		len += _putchar('0' + d / rem);
+		d %= rem;
+		rem /= 10;
+	}
+
+	return (len);
+}
+/*
+*int int_check(va_list list)
 {
 	int rem, len = 0;
 	int reversed = 0, d;
@@ -57,6 +89,7 @@ int int_check(va_list list)
 
 	return (len);
 }
+*/
 /**
  * octal_check - converts integers to Octal
  * @list: the list of args used.
