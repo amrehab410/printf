@@ -12,8 +12,8 @@ int main(void)
 	int len;
 	int len2;
 
-	len = _printf("Length:[%d, %i] String:[%s][%c]  Unsigned octal:[%o]  Unsigned hexadecimal:[%x, %X] \n", 54, 56, "I am a string !", 'h', 3333, '\n', '\n');
-	len2 = printf("Length:[%d, %i] String:[%s][%c]  Unsigned octal:[%o]  Unsigned hexadecimal:[%x, %X] \n", 55, 56, "I am a string !", 'h', 3333, '\n', '\n');
+	len = _printf("Length:[%d, %i]\n", 12345, 56);
+	len2 = printf("Length:[%d, %i]\n", 12345, 56);
 	printf("Length:[%d, %d]\n", len, len2);
 	_printf("%");
 	printf("Character:[%d]\n", '\n');

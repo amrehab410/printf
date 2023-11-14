@@ -7,6 +7,7 @@
 #include <ctype.h>
 #include <errno.h>
 #include <unistd.h>
+#include <math.h>
 
 int _printf(const char *format, ...);
 int formatloop(const char *format, va_list list);

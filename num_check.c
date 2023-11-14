@@ -24,15 +24,28 @@ int binary_check(va_list list)
  */
 int int_check(va_list list)
 {
-	int rem, len;
+	int rem, len = 0;
+	int reversed;
 	int c = va_arg(list, int);
 
+	if (c == 0)
+	{
+		_putchar('0');
+		len++;
+	}
 	while (c)
 	{
 		rem = c % 10;
+		reversed = reversed * 10 + rem;
+		c /= 10;
+	}
+
+	while (reversed)
+	{
+		rem = reversed % 10;
 		_putchar(rem + '0');
 		len++;
-		c /= 10;
+		reversed /= 10;
 	}
 
 	return (len);
@@ -77,9 +90,10 @@ int unsigned_check(va_list list)
 		printf("Binaryyyyyyyy%s\n", binary);
 		printf("Decimaaaaaaaaaaaaal%d\n", c);
 
-		/** unsigned long int len = strlen(res);
+		/**
+		 * unsigned long int len = strlen(res);
 		 *
-		 * // write(1, buffer, len);
+		 *  write(1, buffer, len);
 		 * return (len);
 		 */
 		return (1);
