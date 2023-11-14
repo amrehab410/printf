@@ -46,50 +46,15 @@ int int_check(va_list args)
 
 	while (rem != 0)
 	{
-		len += _putchar('0' + d / rem);
+		_putchar('0' + d / rem);
+		len++;
 		d %= rem;
 		rem /= 10;
 	}
 
 	return (len);
 }
-/*
-*int int_check(va_list list)
-{
-	int rem, len = 0;
-	int reversed = 0, d;
-	int c = va_arg(list, int);
 
-	if (c == 0)
-	{
-		_putchar('0');
-		len++;
-	}
-	d = c;
-	if (c < 0)
-	{
-		_putchar('-');
-		len++;
-		d = -d;
-	}
-	while (d)
-	{
-		rem = d % 10;
-		reversed = reversed * 10 + rem;
-		d /= 10;
-	}
-
-	while (reversed)
-	{
-		rem = reversed % 10;
-		_putchar(rem + '0');
-		len++;
-		reversed /= 10;
-	}
-
-	return (len);
-}
-*/
 /**
  * octal_check - converts integers to Octal
  * @list: the list of args used.
