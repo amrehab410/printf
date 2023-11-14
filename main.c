@@ -14,12 +14,12 @@ int main(void)
 
 	len = _printf("Length:[%d, %i]\n", 12345, 56);
 	len2 = printf("Length:[%d, %i]\n", 12345, 56);
-	printf("Length:[%d, %d]\n", len, len2);
 	_printf("%");
 	printf("Character:[%d]\n", '\n');
 	_printf("String:[%s][%c]\n", "I am a string !", 'h');
 	printf("String:[%s][%c]\n", "I am a string !", 'h');
 	_printf("Length:[%d, %i]\n", len, len2);
+	printf("Length:[%d, %i]\n", len, len2);
 	_printf("%b\n", -98);
 	_printf("Unsigned octal:[%o]\n", 3333);
 	printf("Unsigned octal:[%o]\n", 3333);
