@@ -180,3 +180,18 @@ char *intToOcta(int num)
 	octaStr[index] = '\0';
 	return (octaStr);
 }
+
+int binaryToDecimal(int binaryNumber)
+{
+	int decimalNumber = 0, remainder, base = 1;
+
+	while (binaryNumber > 0)
+	{
+		remainder = binaryNumber % 10;
+		decimalNumber += remainder * base;
+		binaryNumber /= 10;
+		base *= 2;
+	}
+
+	return (decimalNumber);
+}

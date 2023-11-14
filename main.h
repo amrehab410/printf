@@ -24,5 +24,7 @@ char *intToHEX(int num);
 char *intTohex(int num);
 int HEX_check(va_list list);
 int hex_check(va_list list);
+int binaryToDecimal(int binaryNumber);
+int _putchar(char c);
 
 #endif

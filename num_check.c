@@ -24,11 +24,17 @@ int binary_check(va_list list)
  */
 int int_check(va_list list)
 {
-	char buffer[12];
+	int rem, len;
 	int c = va_arg(list, int);
-	unsigned long int len = sprintf(buffer, "%d", c);
 
-	write(1, buffer, len);
+	while (c)
+	{
+		rem = c % 10;
+		_putchar(rem + '0');
+		len++;
+		c /= 10;
+	}
+
 	return (len);
 }
 /**
@@ -57,10 +63,33 @@ int octal_check(va_list list)
 int unsigned_check(va_list list)
 {
 	char buffer[12];
-	unsigned int c = va_arg(list, unsigned int);
+	int c = va_arg(list, int);
 
-	unsigned long int len = sprintf(buffer, "%d", c);
+	if (c < 0)
+	{
+		char *binary = intToBinary(c);
+		char *endPtr;
+		long int convertedValue = strtol(binary, &endPtr, 2);
+		int buffer = ~convertedValue + 1;
+		int res = binaryToDecimal(buffer);
 
-	write(1, buffer, len);
-	return (len);
+		printf("Hexaaaaaaaaaa%d\n", res);
+		printf("Binaryyyyyyyy%s\n", binary);
+		printf("Decimaaaaaaaaaaaaal%d\n", c);
+
+		/** unsigned long int len = strlen(res);
+		 *
+		 * // write(1, buffer, len);
+		 * return (len);
+		 */
+		return (1);
+	}
+	else
+	{
+
+		unsigned long int len = sprintf(buffer, "%d", c);
+
+		write(1, buffer, len);
+		return (len);
+	}
 }
